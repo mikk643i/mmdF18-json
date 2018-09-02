@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+
+    <style>
+        .container {
+            display: grid;
+
+        }
+
+        . img {
+            max-width: width: 100px;
+            border: 20px 20px 20px 20px;
+        }
+
+    </style>
+
+
+
+
+
+
+
+
+
+    <div class="dyr_dyr"></div>
+
+    <template class="animal_temp">
+       <div class="dyr_temp">
+           <h2></h2>
+           <ul>
+                <li class="type-data"></li>
+                <li class="levested-data"></li>
+
+                <img src="" alt="">
+           </ul>
+
+
+
+       </div>
+
+
+
+
+    </template>
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <script>
+        let dyr = [{
+                "navn": "Aben",
+                "type": "Pattedyr",
+                "levested": "Over hele verden",
+                "billede": "download.jpeg"
+            }, {
+                "navn": "Elefant",
+                "type": "Pattedyr",
+                "levested": "Afrika",
+                "billede": "elefant.jpeg"
+            }, {
+                "navn": "Slange",
+                "type": "Krybdyr",
+                "levested": "Amazonas",
+                "billede": "slange.jpeg"
+
+            }
+
+
+
+
+
+
+        ]
+
+        document.addEventListener("DOMContentLoaded", start);
+
+
+
+
+        function start() {
+            let dest = document.querySelector(".dyr_dyr");
+            let temp = document.querySelector(".animal_temp");
+
+
+
+            dyr.forEach(animal => {
+                let klon = temp.cloneNode(true).content;
+                klon.querySelector("h2").textContent = animal.navn;
+                klon.querySelector("ul .type-data").textContent = animal.type;
+                klon.querySelector("ul .levested-data").textContent = animal.levested;
+                klon.querySelector("img").src = animal.billede;
+                dest.appendChild(klon);
+            })
+
+        }
+
+    </script>
+</body>
+
+</html>
