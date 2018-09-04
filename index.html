@@ -7,6 +7,10 @@
     <title>Bistro Babushka</title>
 
     <style>
+        body {
+            margin: 0 auto;
+        }
+
         .retContainer {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -36,10 +40,43 @@
             }
         }
 
+        #modal {
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            background-color: rgba(0, 0, 0, .7);
+            text-align: center;
+            /*display: none;*/
+            transition: all 1s;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        #modal-content {
+            width: 70vw;
+            height: 70vh;
+            background-color: rgba(250, 250, 250, 1);
+            margin: auto;
+        }
+
+        #modal.vis {
+            /* display: block;*/
+            opacity: 1;
+            pointer-events: all;
+        }
     </style>
 </head>
 
 <body>
+    <section id="modal">
+        <button>Close</button>
+        <div id="modal-content">
+            <h2 class="modal-navn"></h2>
+            <img class="modal-billede" src="" alt="">
+            <p class="kortBeskrivelse" data-kortbeskrivelse></p>
+            <p>Pris: <span class="pris" data-pris></span>, </p>
+        </div>
+    </section>
     <header>
         <h1>Menu</h1>
         <nav>
@@ -51,6 +88,8 @@
             <button class="menu-item" data-kategori="drikkevarer">Drikkevarer</button>
         </nav>
     </header>
+
+
 
     <main class="retContainer"></main>
 
@@ -64,8 +103,10 @@
     </template>
 
     <script>
+        let modal = document.querySelector("#modal");
         let dest = document.querySelector(".retContainer"),
             retter, menuFilter = "alle";
+
         document.addEventListener("DOMContentLoaded", hentJson);
         async function hentJson() {
             let jsonData = await fetch("menu.json");
@@ -91,6 +132,9 @@
                     let klon = temp.cloneNode(true).content;
                     klon.querySelector("[data-navn]").textContent = ret.navn;
                     klon.querySelector("[data-billede]").src = "imgs/small/" + ret.billede + "-sm.jpg";
+                    klon.querySelector("[data-billede]").addEventListener("click", () => {
+                        visModal(ret);
+                    });
                     klon.querySelector("[data-kortbeskrivelse]").textContent = ret.kortbeskrivelse;
                     klon.querySelector("[data-pris]").textContent = ret.pris;
                     dest.appendChild(klon);
@@ -98,6 +142,22 @@
             });
         }
 
+
+        function visModal(retter) {
+            modal.classList.add("vis");
+            modal.querySelector(".modal-navn").textContent = retter.navn;
+            modal.querySelector(".modal-billede").src = "imgs/small/" + retter.billede + "-sm.jpg";
+            modal.querySelector(".modal-billede").alt = "" + retter.navn;
+            modal.querySelector(".kortBeskrivelse").textContent = retter.kortBeskrivelse;
+            modal.querySelector(".pris").textContent = retter.pris;
+
+            modal.querySelector("button").addEventListener("click", skjulModal);
+        }
+
+        function skjulModal() {
+            modal.classList.remove("vis");
+            //window.scrollTo(0);
+        }
     </script>
 
     <footer></footer>
