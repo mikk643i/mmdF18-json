@@ -7,6 +7,12 @@
     <title>Bistro Babushka</title>
 
     <style>
+        body {
+            margin: 0 auto;
+            background: rgb(245, 245, 245);
+            font-family: 'Montserrat', sans-serif;
+        }
+
         .retContainer {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -35,6 +41,62 @@
                 grid-template-columns: 1fr;
             }
         }
+
+
+
+        header img {
+            width: 100vw;
+            height 50vw;
+            margin: 0 auto;
+        }
+
+        nav {
+            text-align: center;
+            padding-bottom: 20px;
+
+        }
+
+        .menu-item {
+            font-size: 15px;
+            margin: 5px 10px 5px 10px;
+            background: rgb(28, 184, 65);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #F5F5F5;
+            cursor: pointer;
+
+
+        }
+
+        header {
+            text-transform: capitalize;
+        }
+
+
+
+        .menu-item:hover {
+            background-color: #3e8e41
+        }
+
+        .menu-item:active {
+            background-color: #3e8e41;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+
+        h1 {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .ret {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            width: 1750px;
+            margin: 0 auto;
+        }
+
     </style>
 </head>
 
@@ -56,7 +118,7 @@
             <article class="ret">
                 <h2 class="overskrift" data-navn></h2>
                 <img class="billede" data-billede src="" alt="">
-                <p class="kortBeskrivelse" data-kortbeskrivelse></p>
+                <p class="langbeskrivelse" data-langbeskrivelse></p>
                 <p>Pris: <span class="pris" data-pris></span>, </p>
             </article>
         </section>
@@ -92,13 +154,14 @@
                 if (ret.id == id) {
 
                     dest.querySelector("[data-navn]").textContent = ret.navn;
-                    dest.querySelector("[data-billede]").src = "imgs/small/" + ret.billede + "-sm.jpg";
-                    dest.querySelector("[data-kortbeskrivelse]").textContent = ret.kortbeskrivelse;
+                    dest.querySelector("[data-billede]").src = "imgs/medium/" + ret.billede + "-md.jpg";
+                    dest.querySelector("[data-langbeskrivelse]").textContent = ret.langbeskrivelse;
                     dest.querySelector("[data-pris]").textContent = ret.pris;
 
                 }
             });
         }
+
     </script>
 
     <footer></footer>

@@ -88,7 +88,6 @@
         .menu-item {
             font-size: 15px;
             margin: 5px 10px 5px 10px;
-
             background: rgb(28, 184, 65);
             color: white;
             border: none;
@@ -99,7 +98,7 @@
         }
 
         .menu-item:hover {
-            background-color: #3e8e41
+            background-color: #3e8e41;
         }
 
         .menu-item:active {
@@ -117,7 +116,6 @@
             text-align: center;
             font-family: 'Montserrat', sans-serif;
         }
-
     </style>
 </head>
 
@@ -201,9 +199,9 @@
         function visModal(retter) {
             modal.classList.add("vis");
             modal.querySelector(".modal-navn").textContent = retter.navn;
-            modal.querySelector(".modal-billede").src = "imgs/small/" + retter.billede + "-sm.jpg";
+            modal.querySelector(".modal-billede").src = "imgs/medium/" + retter.billede + "-md.jpg";
             modal.querySelector(".modal-billede").alt = "" + retter.navn;
-            modal.querySelector(".modal-kortBeskrivelse").textContent = retter.kortBeskrivelse;
+            modal.querySelector("#modal-kortBeskrivelse").textContent = retter.kortBeskrivelse;
             modal.querySelector(".pris").textContent = retter.pris;
 
             modal.querySelector("button").addEventListener("click", skjulModal);
@@ -213,7 +211,6 @@
             modal.classList.remove("vis");
             //window.scrollTo(0);
         }
-
     </script>
 
     <footer></footer>
