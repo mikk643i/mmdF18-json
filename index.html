@@ -5,8 +5,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bistro Babushka</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
     <style>
+        body {
+            margin: 0 auto;
+            background: rgb(245, 245, 245);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+
         .retContainer {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -35,11 +43,64 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        header img {
+            width: 100vw;
+            height 50vw;
+            margin: 0 auto;
+        }
+
+        nav {
+            text-align: center;
+            padding-bottom: 20px;
+
+        }
+
+        .menu-item {
+            font-size: 15px;
+            margin: 5px 10px 5px 10px;
+            background: rgb(28, 184, 65);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #F5F5F5;
+            cursor: pointer;
+
+
+        }
+
+        header {
+            text-transform: capitalize;
+        }
+
+
+
+        .menu-item:hover {
+            background-color: #3e8e41
+        }
+
+        .menu-item:active {
+            background-color: #3e8e41;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+
+        h1 {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .ret {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+        }
+
     </style>
 </head>
 
 <body>
     <header>
+        <img src="babushka.jpg" alt="babushka">
         <h1>Menu</h1>
         <nav>
             <button class="menu-item" data-kategori="alle">Alle retter</button>
@@ -101,6 +162,7 @@
                 }
             });
         }
+
     </script>
 
     <footer></footer>

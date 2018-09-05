@@ -5,15 +5,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bistro Babushka</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
     <style>
         body {
             margin: 0 auto;
+            background: rgb(245, 245, 245);
         }
 
         .retContainer {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
+
         }
 
         @media only screen and (max-width: 1229px) {
@@ -50,6 +53,7 @@
             transition: all 1s;
             opacity: 0;
             pointer-events: none;
+            font-family: 'Montserrat', sans-serif;
         }
 
         #modal-content {
@@ -64,6 +68,56 @@
             opacity: 1;
             pointer-events: all;
         }
+
+        header img {
+            width: 100vw;
+            height 50vw;
+            margin: 0 auto;
+        }
+
+        header {
+            text-transform: capitalize;
+        }
+
+        nav {
+            text-align: center;
+            padding-bottom: 20px;
+
+        }
+
+        .menu-item {
+            font-size: 15px;
+            margin: 5px 10px 5px 10px;
+
+            background: rgb(28, 184, 65);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #F5F5F5;
+            cursor: pointer;
+
+        }
+
+        .menu-item:hover {
+            background-color: #3e8e41
+        }
+
+        .menu-item:active {
+            background-color: #3e8e41;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+
+        h1 {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .ret {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+        }
+
     </style>
 </head>
 
@@ -73,11 +127,12 @@
         <div id="modal-content">
             <h2 class="modal-navn"></h2>
             <img class="modal-billede" src="" alt="">
-            <p class="kortBeskrivelse" data-kortbeskrivelse></p>
+            <p class="modal-kortBeskrivelse" data-kortbeskrivelse></p>
             <p>Pris: <span class="pris" data-pris></span>, </p>
         </div>
     </section>
     <header>
+        <img src="babushka.jpg" alt="babushka">
         <h1>Menu</h1>
         <nav>
             <button class="menu-item" data-kategori="alle">Alle retter</button>
@@ -148,7 +203,7 @@
             modal.querySelector(".modal-navn").textContent = retter.navn;
             modal.querySelector(".modal-billede").src = "imgs/small/" + retter.billede + "-sm.jpg";
             modal.querySelector(".modal-billede").alt = "" + retter.navn;
-            modal.querySelector(".kortBeskrivelse").textContent = retter.kortBeskrivelse;
+            modal.querySelector(".modal-kortBeskrivelse").textContent = retter.kortBeskrivelse;
             modal.querySelector(".pris").textContent = retter.pris;
 
             modal.querySelector("button").addEventListener("click", skjulModal);
@@ -158,6 +213,7 @@
             modal.classList.remove("vis");
             //window.scrollTo(0);
         }
+
     </script>
 
     <footer></footer>
