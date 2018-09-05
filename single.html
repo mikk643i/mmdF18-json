@@ -95,7 +95,6 @@
             font-family: 'Montserrat', sans-serif;
 
         }
-
     </style>
 </head>
 
@@ -153,14 +152,13 @@
                 if (ret.id == id) {
 
                     dest.querySelector("[data-navn]").textContent = ret.navn;
-                    dest.querySelector("[data-billede]").src = "imgs/medium/" + ret.billede + "-md.jpg";
+                    dest.querySelector("[data-billede]").src = "imgs/small/" + ret.billede + "-sm.jpg";
                     dest.querySelector("[data-langbeskrivelse]").textContent = ret.langbeskrivelse;
                     dest.querySelector("[data-pris]").textContent = ret.pris;
 
                 }
             });
         }
-
     </script>
 
     <footer></footer>
